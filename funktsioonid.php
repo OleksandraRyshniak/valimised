@@ -21,6 +21,7 @@ function naitaTabel(){
         echo "<td>{$president}</td>";
         echo "<td>{$punktid}</td>";
         echo "<td><a href='?lisa1punkt=$id'> +1 punkt</a></td>";
+        echo "<td><a href='?kustuta={$id}'>Kustuta</a></td>";
         echo "</tr>";
     }
 }
@@ -30,6 +31,14 @@ function lisaPresident($presidentiNimi, $pilt, $punktid){
     $paring=$connect->prepare("INSERT INTO valimised(president, pilt, punktid,  lisamisaeg)
     VALUES(?,?,?,NOW())");
     $paring->bind_param('ssi',$presidentiNimi, $pilt, $punktid);
+    $paring->execute();
+    $connect->close();
+}
+//k
+function kustutaPresident($id){
+    global $connect;
+    $paring = $connect->prepare("DELETE FROM valimised WHERE id=?");
+    $paring->bind_param("i", $id);
     $paring->execute();
     $connect->close();
 }

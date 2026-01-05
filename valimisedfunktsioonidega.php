@@ -13,6 +13,12 @@ if(!empty($_REQUEST['presidentiNimi'])){
     header("Location:". $_SERVER['PHP_SELF']);
     exit();
 }
+
+if(isset($_REQUEST['kustuta'])){
+    kustutaPresident($_REQUEST['kustuta']);
+    header("Location:". $_SERVER['PHP_SELF']);
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +35,7 @@ if(!empty($_REQUEST['presidentiNimi'])){
         <th>Nimi</th>
         <th>Punktid</th>
         <th>+1 punkt</th>
+        <th>Kustuta</th>
     </tr>
 
     <?php
