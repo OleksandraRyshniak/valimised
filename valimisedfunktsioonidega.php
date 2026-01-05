@@ -36,6 +36,16 @@ if(isset($_REQUEST['nullpunkt'])){
     header("Location:". $_SERVER['PHP_SELF']);
     exit();
 }
+if(isset($_REQUEST['naita'])){
+    naita($_REQUEST['naita']);
+    header("Location:". $_SERVER['PHP_SELF']);
+    exit();
+}
+if(isset($_REQUEST['peida'])){
+    peida($_REQUEST['peida']);
+    header("Location:". $_SERVER['PHP_SELF']);
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -57,6 +67,8 @@ if(isset($_REQUEST['nullpunkt'])){
         <th>Kustuta</th>
         <th>Kommentaarid</th>
         <th>Kustuta kommentaarid</th>
+        <th>Haldus </th>
+        <th>Staatus</th>
     </tr>
 
     <?php

@@ -23,8 +23,8 @@ function kustutapunkt($id)
 
 function naitaTabel(){
     global $connect;
-    $paring=$connect->prepare("Select id, president, pilt, punktid, lisamisaeg, kommentaarid  from valimised where avalik=1 or avalik=0");
-    $paring->bind_result($id,$president, $pilt, $punktid, $lisamisaeg, $kommentaarid);
+    $paring=$connect->prepare("Select id, president, pilt, punktid, lisamisaeg, kommentaarid, avalik  from valimised where avalik=1 or avalik=0");
+    $paring->bind_result($id,$president, $pilt, $punktid, $lisamisaeg, $kommentaarid, $avalik);
     $paring->execute();
     while($paring->fetch()){
         echo "<tr>";
@@ -36,6 +36,16 @@ function naitaTabel(){
         echo "<td><a href='?kustuta={$id}'>Kustuta</a></td>";
         echo "<td>{$kommentaarid}</td>";
         echo "<td><a href='?kustutakom={$id}'>Kustuta kommentaarid</a></td>";
+        $tekst="Näita";
+        $seisund="naita";
+        $tekstLehel="Peidetud";
+        if($avalik==1){
+            $tekstLehel='Näidatud';
+            $seisund='peida';
+            $tekst='Peida';
+        }
+        echo "<td><a href='?$seisund=$id'>$tekst</a></td>";
+        echo "<td>$tekstLehel</td>";
         echo "</tr>";
     }
 }
