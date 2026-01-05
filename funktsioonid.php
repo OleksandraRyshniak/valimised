@@ -30,8 +30,9 @@ function naitaTabel(){
         echo "<tr>";
         echo "<td>{$president}</td>";
         echo "<td>{$punktid}</td>";
-        echo "<td><a href='?lisa1punkt=$id'> +1 punkt</a></td>";
-        echo "<td><a href='?minus1punkt=$id'> -1 punkt</a></td>";
+        echo "<td><a href='?lisa1punkt={$id}'> +1 punkt</a></td>";
+        echo "<td><a href='?minus1punkt={$id}'> -1 punkt</a></td>";
+        echo "<td><a href='?nullpunkt={$id}'>Punktid nuulida</a></td>";
         echo "<td><a href='?kustuta={$id}'>Kustuta</a></td>";
         echo "<td>{$kommentaarid}</td>";
         echo "<td><a href='?kustutakom={$id}'>Kustuta kommentaarid</a></td>";
@@ -63,4 +64,30 @@ Update valimised SET kommentaarid=' ' WHERE id=?");
     $paring->bind_param('i', $id);;
     $paring->execute();
     $connect->close();
+}
+
+function nullpunkt($id){
+    global $connect;
+    $paring=$connect->prepare("Update valimised SET punktid=0 WHERE id=?");
+    $paring->bind_param('i',$id);
+    $paring->execute();
+    $paring->close();
+}
+
+//Näitamine
+function naita($id)
+{
+    global $connect;
+    $paring=$connect->prepare("Update valimised SET avalik=1 WHERE id=?");
+    $paring->bind_param('i',$id);
+    $paring->execute();
+    $paring->close();
+}
+//Peida
+function peida($id){
+    global $connect;
+    $paring=$connect->prepare("Update valimised SET avalik=0 WHERE id=?");
+    $paring->bind_param('i',$id);
+    $paring->execute();
+    $paring->close();
 }

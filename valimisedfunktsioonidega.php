@@ -31,6 +31,11 @@ if(isset($_REQUEST['kustutakom'])){
     header("Location:". $_SERVER['PHP_SELF']);
     exit();
 }
+if(isset($_REQUEST['nullpunkt'])){
+    nullpunkt($_REQUEST['nullpunkt']);
+    header("Location:". $_SERVER['PHP_SELF']);
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -48,6 +53,7 @@ if(isset($_REQUEST['kustutakom'])){
         <th>Punktid</th>
         <th>+1 punkt</th>
         <th>-1 punkt</th>
+        <th>Punktid nullida</th>
         <th>Kustuta</th>
         <th>Kommentaarid</th>
         <th>Kustuta kommentaarid</th>
