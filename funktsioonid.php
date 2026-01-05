@@ -33,6 +33,8 @@ function naitaTabel(){
         echo "<td><a href='?lisa1punkt=$id'> +1 punkt</a></td>";
         echo "<td><a href='?minus1punkt=$id'> -1 punkt</a></td>";
         echo "<td><a href='?kustuta={$id}'>Kustuta</a></td>";
+        echo "<td>{$kommentaarid}</td>";
+        echo "<td><a href='?kustutakom={$id}'>Kustuta kommentaarid</a></td>";
         echo "</tr>";
     }
 }
@@ -50,6 +52,15 @@ function kustutaPresident($id){
     global $connect;
     $paring = $connect->prepare("DELETE FROM valimised WHERE id=?");
     $paring->bind_param("i", $id);
+    $paring->execute();
+    $connect->close();
+}
+
+function kustutaKom($id){
+    global $connect;
+    $paring=$connect->prepare("
+Update valimised SET kommentaarid=' ' WHERE id=?");
+    $paring->bind_param('i', $id);;
     $paring->execute();
     $connect->close();
 }

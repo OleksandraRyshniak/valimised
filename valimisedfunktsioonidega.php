@@ -25,6 +25,12 @@ if(isset($_REQUEST['kustuta'])){
     header("Location:". $_SERVER['PHP_SELF']);
     exit();
 }
+
+if(isset($_REQUEST['kustutakom'])){
+    kustutaKom($_REQUEST['kustutakom']);
+    header("Location:". $_SERVER['PHP_SELF']);
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +49,8 @@ if(isset($_REQUEST['kustuta'])){
         <th>+1 punkt</th>
         <th>-1 punkt</th>
         <th>Kustuta</th>
+        <th>Kommentaarid</th>
+        <th>Kustuta kommentaarid</th>
     </tr>
 
     <?php
