@@ -46,10 +46,10 @@ if(isset($_REQUEST['peida'])){
     header("Location:". $_SERVER['PHP_SELF']);
     exit();
 }
-if (!empty($_REQUEST['uue_komment_id']) && !empty($_REQUEST['uus_kommentaar'])) {
-    lisakom($_REQUEST['uue_komment_id'], $_REQUEST['uus_kommentaar']);
-    header("Location: ".$_SERVER['PHP_SELF']);
-    exit();
+if (isset($_REQUEST['uus_kommentaar']) && isset($_REQUEST['uue_komment_id'])) {
+    lisakom($_REQUEST['uus_kommentaar'], $_REQUEST['uue_komment_id']);
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit;
 }
 ?>
 

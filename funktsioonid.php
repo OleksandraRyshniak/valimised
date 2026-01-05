@@ -34,17 +34,16 @@ function naitaTabel(){
         echo "<td><a href='?minus1punkt={$id}'> -1 punkt</a></td>";
         echo "<td><a href='?nullpunkt={$id}'>Punktid nuulida</a></td>";
         echo "<td><a href='?kustuta={$id}'>Kustuta</a></td>";
-        echo "<td>".nl2br(htmlspecialchars($kommentaarid))."</td>";
+        echo "<td>{$kommentaarid}</td>";
         echo "<td><a href='?kustutakom={$id}'>Kustuta kommentaarid</a></td>";
 
+
         echo "<td>
-<form method='post' action=''>
-<input type='hidden' name='uue_komment_id' value='$id'>
-<label for='uus_kommentaar'></label>
-<input type='text' name='uus_kommentaar' id='uus_kommentaar'>
-<br><br>
-<input type='submit' value='ok'>
-</form></td>";
+            <form action='' method='post'>
+                <input type='hidden' name='uue_komment_id' value='$id'>
+                <input type='text' name='uus_kommentaar'>
+                <input type='submit' value='OK'>
+            </form>        </td>";
 
         $tekst="Näita";
         $seisund="naita";
@@ -113,12 +112,10 @@ function peida($id){
 }
 
 //lisa kom
- function lisakom($id){
+ function lisakom($komment2, $id){
      global $connect;
-     $paring = $connect->prepare(
-         "UPDATE valimised SET kommentaarid = ? WHERE id = ?"
-     );
-     $paring->bind_param('si', $kommentaar, $id);
+     $paring = $connect->prepare("update valimised set kommentaarid=CONCAT(kommentaarid, ?) where id=?");
+     $paring->bind_param("si", $komment2, $id);
      $paring->execute();
      $paring->close();
  }
