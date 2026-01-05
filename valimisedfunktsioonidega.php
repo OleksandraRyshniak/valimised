@@ -46,6 +46,11 @@ if(isset($_REQUEST['peida'])){
     header("Location:". $_SERVER['PHP_SELF']);
     exit();
 }
+if (!empty($_REQUEST['uue_komment_id']) && !empty($_REQUEST['uus_kommentaar'])) {
+    lisakom($_REQUEST['uue_komment_id'], $_REQUEST['uus_kommentaar']);
+    header("Location: ".$_SERVER['PHP_SELF']);
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -67,6 +72,7 @@ if(isset($_REQUEST['peida'])){
         <th>Kustuta</th>
         <th>Kommentaarid</th>
         <th>Kustuta kommentaarid</th>
+        <th>Lisa kommentaarid</th>
         <th>Haldus </th>
         <th>Staatus</th>
     </tr>

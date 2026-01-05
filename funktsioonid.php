@@ -34,8 +34,18 @@ function naitaTabel(){
         echo "<td><a href='?minus1punkt={$id}'> -1 punkt</a></td>";
         echo "<td><a href='?nullpunkt={$id}'>Punktid nuulida</a></td>";
         echo "<td><a href='?kustuta={$id}'>Kustuta</a></td>";
-        echo "<td>{$kommentaarid}</td>";
+        echo "<td>".nl2br(htmlspecialchars($kommentaarid))."</td>";
         echo "<td><a href='?kustutakom={$id}'>Kustuta kommentaarid</a></td>";
+
+        echo "<td>
+<form method='post' action=''>
+<input type='hidden' name='uue_komment_id' value='$id'>
+<label for='uus_kommentaar'></label>
+<input type='text' name='uus_kommentaar' id='uus_kommentaar'>
+<br><br>
+<input type='submit' value='ok'>
+</form></td>";
+
         $tekst="Näita";
         $seisund="naita";
         $tekstLehel="Peidetud";
@@ -101,3 +111,14 @@ function peida($id){
     $paring->execute();
     $paring->close();
 }
+
+//lisa kom
+ function lisakom($id){
+     global $connect;
+     $paring = $connect->prepare(
+         "UPDATE valimised SET kommentaarid = ? WHERE id = ?"
+     );
+     $paring->bind_param('si', $kommentaar, $id);
+     $paring->execute();
+     $paring->close();
+ }
