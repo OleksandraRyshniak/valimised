@@ -9,7 +9,7 @@ if(isset($_REQUEST['lisa1punkt'])){
 
 //päring lisaPresident funktsiooni otsimiseks
 if(!empty($_REQUEST['presidentiNimi'])){
-    lisaPresident($_REQUEST['presidentiNimi'], $_REQUEST['pilt']);
+    lisaPresident($_REQUEST['presidentiNimi'], $_REQUEST['pilt'], $_REQUEST['punktid']);
     header("Location:". $_SERVER['PHP_SELF']);
     exit();
 }
@@ -42,6 +42,9 @@ if(!empty($_REQUEST['presidentiNimi'])){
     <br><br>
     <label for="pilt">President pilt: </label>
     <textarea name="pilt" id="pilt"></textarea>
+    <br><br>
+    <label for="punktid">Punktid: </label>
+    <input type="number" name="punktid" id="punktid">
     <br><br>
     <label for="avalik">Staatus: </label>
 

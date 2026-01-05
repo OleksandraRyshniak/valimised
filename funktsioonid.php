@@ -25,11 +25,11 @@ function naitaTabel(){
     }
 }
 //uue presidenti lisamine - INSERT
-function lisaPresident($presidentiNimi, $pilt){
+function lisaPresident($presidentiNimi, $pilt, $punktid){
     global $connect;
-    $paring=$connect->prepare("INSERT INTO valimised(president, pilt, lisamisaeg)
-    VALUES(?,?,NOW())");
-    $paring->bind_param('ss',$presidentiNimi, $pilt);
+    $paring=$connect->prepare("INSERT INTO valimised(president, pilt, punktid,  lisamisaeg)
+    VALUES(?,?,?,NOW())");
+    $paring->bind_param('ssi',$presidentiNimi, $pilt, $punktid);
     $paring->execute();
     $connect->close();
 }
