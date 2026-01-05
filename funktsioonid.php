@@ -6,7 +6,7 @@ global $connect;
 function lisapunkt($id){
     global $connect;
         $paring=$connect->prepare("Update valimised SET punktid=punktid+1 WHERE id=?");
-        $paring->bind_param('i',$_REQUEST['$id']);
+        $paring->bind_param('i',$id);
         $paring->execute();
         $connect->close();
 }
@@ -21,7 +21,6 @@ function naitaTabel(){
         echo "<td>{$president}</td>";
         echo "<td>{$punktid}</td>";
         echo "<td><a href='?lisa1punkt=$id'> +1 punkt</a></td>";
-        echo "<td><a href='?minus1punkt=$id'> -1 punkt</a></td>";
         echo "</tr>";
     }
 }
