@@ -7,6 +7,12 @@ if(isset($_REQUEST['lisa1punkt'])){
     exit();
 }
 
+if(isset($_REQUEST['minus1punkt'])){
+    kustutapunkt($_REQUEST['minus1punkt']);
+    header("Location:". $_SERVER['PHP_SELF']);
+    exit();
+}
+
 //päring lisaPresident funktsiooni otsimiseks
 if(!empty($_REQUEST['presidentiNimi'])){
     lisaPresident($_REQUEST['presidentiNimi'], $_REQUEST['pilt'], $_REQUEST['punktid']);
@@ -35,6 +41,7 @@ if(isset($_REQUEST['kustuta'])){
         <th>Nimi</th>
         <th>Punktid</th>
         <th>+1 punkt</th>
+        <th>-1 punkt</th>
         <th>Kustuta</th>
     </tr>
 
