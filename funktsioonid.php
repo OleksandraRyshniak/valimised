@@ -13,7 +13,7 @@ function lisapunkt($id){
 
 function naitaTabel(){
     global $connect;
-    $paring=$connect->prepare("Select id, president, pilt, punktid, lisamisaeg, kommentaarid  from valimised where avalik=1");
+    $paring=$connect->prepare("Select id, president, pilt, punktid, lisamisaeg, kommentaarid  from valimised where avalik=1 or avalik=0");
     $paring->bind_result($id,$president, $pilt, $punktid, $lisamisaeg, $kommentaarid);
     $paring->execute();
     while($paring->fetch()){
