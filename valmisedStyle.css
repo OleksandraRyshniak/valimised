@@ -1,0 +1,179 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+nav ul {
+    list-style: none;
+    background: #333;
+    padding: 10px;
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #555;
+    color: white;
+}
+
+td img {
+    width: 80px;
+    height: auto;
+    border-radius: 4px;
+}
+
+table a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+form {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    margin: 20px auto;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea,
+select {
+    width: 270px;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+}
+
+input[type="submit"] {
+    padding: 8px 16px;
+    background: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: #005fa3;
+}
+
+
+#menu {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+#menu ul {
+    padding: 0;
+    margin: 0;
+}
+
+#menu li {
+    list-style: none;
+    display: inline-block;
+}
+
+#menu img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid #ddd;
+    transition: 0.2s;
+}
+
+#menu img:hover {
+    border-color: #0077cc;
+    transform: scale(1.05);
+}
+
+#menu ul li a {
+    text-decoration: none;
+}
+
+
+#sisu {
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+    flex-grow: 1;
+    border: 1px solid #ccc;
+}
+
+#sisu strong {
+    font-size: 16px;
+    color: #333;
+}
+
+#sisu form {
+    margin-top: 10px;
+    margin-left: 0;
+}
+
+#sisu img {
+    max-width: 200px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+
+a {
+    font-weight: bold;
+    color: #0077cc;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #005fa3;
+    text-decoration: underline;
+}
+
+
